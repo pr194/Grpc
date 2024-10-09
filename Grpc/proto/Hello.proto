@@ -1,0 +1,32 @@
+syntax ="proto3";
+
+option go_package ="./";
+
+message Todo {
+  int32 id = 1;
+  string title =2;
+}
+message AddTodoRequest {
+    Todo todo = 1;
+}
+message AddTodoResponse {
+     Todo todo = 1;
+}
+message GetTodoRequest {
+
+}
+message GetTodoResponse {
+    repeated Todo todo = 1;
+}
+message HelloRequest {
+    string Somestring = 1;
+}
+message HelloResponse {
+    string Reply = 1;
+}
+
+service Example {
+    rpc ServerReply(HelloRequest) returns (HelloResponse);
+    rpc Addtodo(AddTodoRequest) returns (AddTodoResponse);
+    rpc Gettodo(GetTodoRequest) returns (GetTodoRequest);
+}
